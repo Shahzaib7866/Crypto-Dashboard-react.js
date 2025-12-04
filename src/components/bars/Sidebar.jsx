@@ -6,125 +6,95 @@ import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import KeyboardArrowRightOutlinedIcon from '@mui/icons-material/KeyboardArrowRightOutlined';
-import crypto from '../../assets/images/crypto.jpg'
-
+import crypto from '../../assets/images/crypto.jpg';
 
 const Sidebar = () => {
   return (
     <>
+      {/* Sidebar Container: Use flex-col to stack children vertically */}
+      <aside className="sticky top-[130px] z-40 flex w-64 h-screen bg-gray-800 text-white mb-1">
 
-    <div className='bg-[#161326] h-[679px] w-[255px] text-white'>
-      <div className='flex justify-center pt-4 pb-8'>
-
-
-         <img
-        src={crypto}
-        alt="crypto image"
-        className="w-full sm:w-1/6 md:w-1/6 rounded mr-2"
-      />
-        <h5>Crypto</h5>
-
-        <button><KeyboardArrowLeftIcon className='ml-5 bg-white text-black rounded' /></button>
+        {/* Top Section: Logo and title. Use flex with items-center to align vertically. */}
+        <div className='flex items-center justify-between pt-4 pb-8 px-4'>
+          <div className='flex items-center'>
+            <img
+              src={crypto}
+              alt="crypto image"
+              className="w-10 h-10 rounded-full mr-2"
+            />
+            <h5 className="text-xl font-bold">Crypto</h5>
+          </div>
+          <button className='bg-white text-black rounded p-1'>
+            <KeyboardArrowLeftIcon />
+          </button>
         </div>
 
+        {/* Navigation Section: Use a div with vertical padding and center the list. */}
+        <div className='flex-1 overflow-y-auto px-4'>
+          <ul className='flex flex-col gap-6 font-bold'>
+            {/* Dashboard */}
+            <li>
+              <a href="/" className="flex items-center text-white p-2 hover:bg-gray-700 rounded-md transition-colors">
+                <GridViewIcon className='mr-2' />
+                <span>Dashboard</span>
+                <KeyboardArrowRightOutlinedIcon className='ml-auto' />
+              </a>
+            </li>
 
-      {/* pages name */}
-      {/* <div className='flex items-center justify-center'>
-        <ul className='flex items-center justify-center'>
+            {/* My Wallet */}
+            <li>
+              <a href="/mywallet" className="flex items-center text-white p-2 hover:bg-gray-700 rounded-md transition-colors">
+                <AccountBalanceWalletIcon className='mr-2' />
+                <span>My Wallet</span>
+              </a>
+            </li>
 
-<ul className='flex flex-col items-center justify-center font-bold'>
-  <li>
-    <a href="/dashboard" className="flex items-center text-white">
-      <GridViewIcon className='mr-2' />
-      <span>Dashboard</span>
-    </a>
-  </li>
-</ul>
+            {/* Transaction */}
+            <li>
+              <a href="/transaction" className="flex items-center text-white p-2 hover:bg-gray-700 rounded-md transition-colors">
+                <ReceiptSharpIcon className='mr-2' />
+                <span>Transaction</span>
+              </a>
+            </li>
 
+            {/* Crypto */}
+            <li>
+              <a href="/crypto" className="flex items-center text-white p-2 hover:bg-gray-700 rounded-md transition-colors">
+                <CurrencyBitcoinIcon className='mr-2' />
+                <span>Crypto</span>
+              </a>
+            </li>
 
-        <ul>
-          <li>Default</li>
-          <li>Boxed</li>
-        </ul>
+            {/* Exchange */}
+            <li>
+              <a href="/exchange" className="flex items-center text-white p-2 hover:bg-gray-700 rounded-md transition-colors">
+                <CurrencyExchangeIcon className='mr-2' />
+                <span>Exchange</span>
+              </a>
+            </li>
 
-  <li>
-    <a href="/dashboard" className="flex items-center text-white">
-      <AccountBalanceWalletIcon className='mr-2' />
-      <span>My Wallet</span>
-    </a>
-  </li>
+            {/* Settings */}
+            <li>
+              <a href="/settings" className="flex items-center text-white p-2 hover:bg-gray-700 rounded-md transition-colors">
+                <SettingsOutlinedIcon className='mr-2' />
+                <span>Settings</span>
+              </a>
+            </li>
+          </ul>
+        </div>
 
+        {/* Bottom Section: Upgrade to Pro. Use padding and a fixed bottom position. */}
+        <div className='mt-38 mb-8 text-center'>
+          <p className="text-sm text-gray-5500">For more features</p>
+          <h6 className='font-bold text-lg'>Upgrade to Pro</h6>
+        </div>
 
-
-        <li><ReceiptSharpIcon className='mr-2'/>Transaction</li>
-        <li><CurrencyBitcoinIcon className='mr-2 mt-4'/>Crypto</li>
-        <li><CurrencyExchangeIcon className='mr-2' />Exchange</li>
-        <li><SettingsOutlinedIcon className='mr-2'/>Settings</li>
-        </ul>
-      </div> */}
-
-<div className='flex justify-center mt-4'>
-  <ul className='flex flex-col gap-7 font-bold'>
-
-    {/* Dashboard */}
-    <li>
-      <a href="/dashboard" className="flex items-center text-white">
-        <GridViewIcon className='mr-2' />
-        <span>Dashboard</span>
-        <KeyboardArrowRightOutlinedIcon className='ml-5' />
-      </a>
-    </li>
-
-    {/* My Wallet */}
-    <li>
-      <a href="/dashboard" className="flex items-center text-white">
-        <AccountBalanceWalletIcon className='mr-2' />
-        <span>My Wallet</span>
-      </a>
-    </li>
-
-    {/* Transaction */}
-    <li>
-      <a href="/transaction" className="flex items-center text-white">
-        <ReceiptSharpIcon className='mr-2' />
-        <span>Transaction</span>
-      </a>
-    </li>
-
-    {/* Crypto */}
-    <li>
-      <a href="/crypto" className="flex items-center text-white">
-        <CurrencyBitcoinIcon className='mr-2' />
-        <span>Crypto</span>
-      </a>
-    </li>
-
-    {/* Exchange */}
-    <li>
-      <a href="/exchange" className="flex items-center text-white">
-        <CurrencyExchangeIcon className='mr-2' />
-        <span>Exchange</span>
-      </a>
-    </li>
-
-    {/* Settings */}
-    <li>
-      <a href="/settings" className="flex items-center text-white">
-        <SettingsOutlinedIcon className='mr-2' />
-        <span>Settings</span>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
-
-
-    </div>
-      
-
+      </aside>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
+
+
+
