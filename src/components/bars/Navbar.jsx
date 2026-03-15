@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
@@ -5,8 +6,10 @@ import Sidebar from './Sidebar';
 import SearchIcon from '@mui/icons-material/Search';
 
 
-
 const Navbar = () => {
+
+const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>      
 
@@ -27,28 +30,53 @@ const Navbar = () => {
           <div className='flex items-center justify-center ml-2'>
            <h4 className='font-semibold'>Dashboard</h4>
            <div className='flex items-center justify-center'>
-  <div className='relative'>
-    <SearchIcon className='absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none' />
-    <input 
-      type="search" 
-      name="Search" 
-      placeholder="Type to search..." 
-      className='border-1 w-[280px] rounded-[10px] p-2 ml-4' 
+
+  <div className='ml-2 relative w-fit'>
+    <SearchIcon className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none' />
+    <input
+      type="search"
+      name="Search"
+      placeholder="Type to search..."
+      className='border-1 w-[280px] rounded-[10px] py-2 pl-10 pr-4 outline-none'
     />
+
   </div>
+
 </div>
-        </div>
+ </div>
      
 <div className='flex items-center gap-6'>
-  <MailOutlineIcon />
-  <NotificationsNoneIcon />
+
+  <div className="flex items-center justify-center p-2 rounded-full cursor-pointer transition-colors duration-200 hover:bg-black hover:text-white">
+    <MailOutlineIcon />
+  </div>
+
+  {/* Notifications Icon Wrapper */}
+  <div className="flex items-center justify-center p-2 rounded-full cursor-pointer transition-colors duration-200 hover:bg-black hover:text-white">
+    <NotificationsNoneIcon />
+  </div>
+
   <span className='h-[50px] w-[2px] bg-gray-400'></span>
 
-  <div>
+  <div className="cursor-pointer p-2 rounded-xl transition-colors duration-200 hover:bg-black hover:text-white" onClick={() => setIsOpen(!isOpen)}>
   <div className='font-medium mr-4'>Jonathan</div>
   <p className='text-gray-600 text-sm'>Admin</p>
+
   </div>
+
+    {isOpen && (
+        <ul className="mt-5 absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-10 text-black">
+          <li className="p-2 hover:bg-gray-100 cursor-pointer">My Profile</li>
+          <li className="p-2 hover:bg-gray-100 cursor-pointer">Settings</li>
+          <li className="p-2 border-t hover:bg-gray-100 cursor-pointer text-red-600">Logout</li>
+        </ul>
+      )}
+
+
+
+
 </div>
+
 </div>
 </div>
 </div>
