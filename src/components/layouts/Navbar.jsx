@@ -4,6 +4,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import Sidebar from './Sidebar';
 import SearchIcon from '@mui/icons-material/Search';
+import Charts from '../Charts';
 
 
 const Navbar = () => {
@@ -19,12 +20,9 @@ const [isOpen, setIsOpen] = useState(false);
         <button className="bg-green-500 hover:bg-green-700 rounded-lg px-3 py-1 ">Buy Now</button>
       </div>
 
-      <div className='flex h-screen'>
-      {/* Sidebar - Fixed on left */}
-      <Sidebar />
 
-{/* Secondary Navbar */}
-        <div className='flex flex-col flex-1'>
+  <div className='flex flex-col flex-1'>
+    
    <div className='sticky top-[50px] z-40 flex items-center justify-between bg-[#D3D3D3] border-b border-gray-200 h-[80px] px-4'>
     
           <div className='flex items-center justify-center ml-2'>
@@ -79,7 +77,7 @@ const [isOpen, setIsOpen] = useState(false);
 
 </div>
 </div>
-</div>
+
 
     </>
   )

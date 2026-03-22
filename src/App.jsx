@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Navbar from './components/bars/Navbar';
 // import Sidebar from './components/bars/Sidebar';
 import './index.css';
+import Layout from './components/layouts/Layouts';
 
 
 function App() {
@@ -12,14 +13,15 @@ function App() {
   return (
    
    <BrowserRouter>
-   {/* <Navbar /> */}
-   {/* <Sidebar /> */}
+   <Layout> 
     <Routes>    
        <Route path='/' exact={true} element={<Dashboard />}/>
        <Route path='/mywallet' exact={true} element={<Mywallet />}/>
 
 
    </Routes>
+
+   </Layout>
    </BrowserRouter>
     
   )
